@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@300;400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 158 40% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 158 40% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 158 40% 12%;
+    --primary: 158 50% 18%;
+    --primary-foreground: 45 90% 85%;
+    --secondary: 45 70% 50%;
+    --secondary-foreground: 158 40% 12%;
+    --muted: 158 10% 95%;
+    --muted-foreground: 158 15% 45%;
+    --accent: 45 70% 50%;
+    --accent-foreground: 158 40% 12%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 158 15% 88%;
+    --input: 158 15% 88%;
+    --ring: 158 50% 18%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+    font-family: "Tajawal", "Cairo", sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cairo", "Tajawal", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .omran-gradient {
+    background: linear-gradient(135deg, #1a3a2a 0%, #2d5a40 50%, #c9a227 100%);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #c9a227 0%, #f0c84d 50%, #c9a227 100%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium
+           transition-all duration-150 cursor-pointer;
+  }
+
+  .sidebar-item.active {
+    @apply bg-white/15 text-white;
+  }
+
+  .sidebar-item:not(.active) {
+    @apply text-white/70 hover:bg-white/10 hover:text-white;
+  }
+
+  .badge-status {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
+  }
+
+  .form-section {
+    @apply bg-white rounded-2xl shadow-sm border border-border p-6;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a227;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a3a2a;
+}
