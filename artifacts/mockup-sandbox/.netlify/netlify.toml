@@ -1,0 +1,27 @@
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/opt/build/repo/artifacts/mockup-sandbox/dist"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "PORT=8888 BASE_PATH=/ pnpm run build"
+base = "/opt/build/repo/artifacts/mockup-sandbox"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

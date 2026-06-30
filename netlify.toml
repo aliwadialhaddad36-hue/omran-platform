@@ -1,0 +1,4 @@
+[build]
+  base = "artifacts/mockup-sandbox"
+  command = "PORT=8888 BASE_PATH=/ pnpm run build"
+  publish = "dist"
