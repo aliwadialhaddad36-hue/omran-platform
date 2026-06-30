@@ -7,6 +7,11 @@ node_modules
 out
 dist
 build
+.vercel
+
+# Cloudflare Pages
+.wrangler
+.dev.vars
 
 # Environment
 .env
@@ -23,9 +28,6 @@ pnpm-debug.log*
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
-
-# Vercel
-.vercel
 
 # Turbo
 .turbo

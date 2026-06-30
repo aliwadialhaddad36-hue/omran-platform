@@ -25,41 +25,40 @@ export async function POST(req: NextRequest) {
 
     const { data: client } = await supabase.from("clients").select("*").eq("id", clientId).single();
     if (client) {
-      await supabase
-        .from("clients")
-        .update({ payment_status: "paid", status: "pending" })
-        .eq("id", clientId);
+      await supabase.from("clients").update({ payment_status: "paid", status: "pending" }).eq("id", clientId);
 
       const { data: admins } = await supabase.from("profiles").select("id").eq("role", "admin");
       if (admins?.length) {
-        const notifs = admins.map((a) => ({
-          user_id: a.id,
-          title: "دفع جديد من عميل مميز",
-          message: `أتم ${client.name} الدفع بمبلغ ${client.package_price} ريال. يرجى مراجعة طلب الاشتراك.`,
-          type: "success" as const,
-          related_type: "client" as const,
-          related_id: clientId,
-        }));
-        await supabase.from("notifications").insert(notifs);
+        await supabase.from("notifications").insert(
+          admins.map((a) => ({
+            user_id: a.id,
+            title: "دفع جديد من عميل مميز",
+            message: `أتم ${client.name} الدفع بمبلغ ${client.package_price} ريال. يرجى مراجعة طلب الاشتراك.`,
+            type: "success" as const,
+            related_type: "client" as const,
+            related_id: clientId,
+          }))
+        );
       }
     }
   }
 
   if (event.type === "invoice.payment_failed") {
     const invoice = event.data.object as any;
-    const subscriptionId = invoice.subscription;
-    if (subscriptionId) {
-      const { data: client } = await supabase.from("clients").select("*").eq("stripe_session_id", subscriptionId).single();
-      if (client?.user_id) {
-        await supabase.from("notifications").insert({
-          user_id: client.user_id,
-          title: "فشل الدفع",
-          message: "لم يتمكن النظام من تحصيل مبلغ الاشتراك. يرجى تحديث بيانات بطاقتك.",
-          type: "error",
-          related_type: "client",
-          related_id: client.id,
-        });
-      }
+    const { data: client } = await supabase
+      .from("clients")
+      .select("*")
+      .eq("stripe_session_id", invoice.subscription)
+      .single();
+    if (client?.user_id) {
+      await supabase.from("notifications").insert({
+        user_id: client.user_id,
+        title: "فشل الدفع",
+        message: "لم يتمكن النظام من تحصيل مبلغ الاشتراك. يرجى تحديث بيانات بطاقتك.",
+        type: "error",
+        related_type: "client",
+        related_id: client.id,
+      });
     }
   }
 

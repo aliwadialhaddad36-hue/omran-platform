@@ -3,6 +3,8 @@ import { stripe, PACKAGES } from "@/lib/stripe";
 import { createClient } from "@/lib/supabase/server";
 import type { PackagePrice } from "@/types";
 
+export const runtime = "edge";
+
 export async function POST(req: NextRequest) {
   try {
     const { clientId, packagePrice } = await req.json();
@@ -50,7 +52,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url });
   } catch (err: any) {
-    console.error("Stripe checkout error:", err);
     return NextResponse.json({ error: err.message || "فشل إنشاء جلسة الدفع" }, { status: 500 });
   }
 }
