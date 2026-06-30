@@ -1,7 +1,10 @@
 name = "omran-platform"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".vercel/output/static"
+
+# pages_build_output_dir is intentionally NOT set here —
+# it conflicts with `wrangler pages deploy <dir>` in CI.
+# The output dir (.vercel/output/static) is passed directly in deploy.yml.
 
 [vars]
 NEXT_PUBLIC_APP_URL = "https://omran-platform.pages.dev"
