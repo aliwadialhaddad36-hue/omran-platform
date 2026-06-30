@@ -9,7 +9,9 @@ import type { Project } from "@/types";
 export default function AdminProjectActions({ project }: { project: Project }) {
   const router = useRouter();
   const [loading, setLoading] = useState<string | null>(null);
-  const [projectUrl, setProjectUrl] = useState(project.project_url || "");
+  const defaultUrl = project.project_url ||
+    `${typeof window !== "undefined" ? window.location.origin : ""}/project/${project.id}`;
+  const [projectUrl, setProjectUrl] = useState(defaultUrl);
   const [adminNotes, setAdminNotes] = useState(project.admin_notes || "");
   const [showApproveModal, setShowApproveModal] = useState(false);
 
