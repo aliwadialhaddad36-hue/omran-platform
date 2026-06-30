@@ -3,8 +3,6 @@ import { stripe, PACKAGES } from "@/lib/stripe";
 import { createClient } from "@/lib/supabase/server";
 import type { PackagePrice } from "@/types";
 
-export const runtime = "edge";
-
 export async function POST(req: NextRequest) {
   try {
     const { clientId, packagePrice } = await req.json();
