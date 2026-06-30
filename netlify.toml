@@ -1,0 +1,10 @@
+[build]
+  base    = "omran-platform"
+  command = "npm ci && next build"
+  publish = "omran-platform/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
