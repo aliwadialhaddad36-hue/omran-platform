@@ -1,0 +1,62 @@
+log
+Initializing
+Complete
+Building
+Failed
+2:16:29 AM: Netlify Build                                                 
+2:16:29 AM: ────────────────────────────────────────────────────────────────
+2:16:29 AM: ​
+2:16:29 AM: ❯ Version
+2:16:29 AM:   @netlify/build 36.0.0
+2:16:29 AM: ​
+2:16:29 AM: ❯ Flags
+2:16:29 AM:   accountId: 6a4444303c98160a94f27072
+2:16:29 AM:   baseRelDir: true
+2:16:29 AM:   buildId: 6a444e3b57aaff41d6299390
+2:16:29 AM:   deployId: 6a444e3b57aaff41d6299392
+2:16:29 AM:   packagePath: artifacts/mockup-sandbox
+2:16:29 AM: ​
+2:16:29 AM: ❯ Current directory
+2:16:29 AM:   /opt/build/repo
+2:16:29 AM: ​
+2:16:29 AM: ❯ Config file
+2:16:29 AM:   No config file was defined: using default values.
+2:16:29 AM: ​
+2:16:29 AM: ❯ Context
+2:16:29 AM:   production
+2:16:29 AM: ​
+2:16:29 AM: Build command from Netlify app                                
+2:16:29 AM: ────────────────────────────────────────────────────────────────
+2:16:29 AM: ​
+2:16:29 AM: $ pnpm --filter @workspace/mockup-sandbox... run build
+2:16:29 AM: > @workspace/mockup-sandbox@2.0.0 build /opt/build/repo/artifacts/mockup-sandbox
+2:16:29 AM: > vite build
+2:16:30 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+2:16:30 AM: failed to load config from /opt/build/repo/artifacts/mockup-sandbox/vite.config.ts
+2:16:30 AM: error during build:
+2:16:30 AM: Error: PORT environment variable is required but was not provided.
+2:16:30 AM:     at file:///opt/build/repo/artifacts/mockup-sandbox/node_modules/.vite-temp/vite.config.ts.timestamp-1782861389999-6b2c04ebca07.mjs:145:9
+2:16:30 AM:     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+2:16:30 AM:     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+2:16:30 AM:     at async loadConfigFromBundledFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.5_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.22.4_yaml@2.9.0/node_modules/vite/dist/node/chunks/config.js:35996:12)
+2:16:30 AM:     at async bundleAndLoadConfigFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.5_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.22.4_yaml@2.9.0/node_modules/vite/dist/node/chunks/config.js:35884:17)
+2:16:30 AM:     at async loadConfigFromFile (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.5_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.22.4_yaml@2.9.0/node_modules/vite/dist/node/chunks/config.js:35851:42)
+2:16:30 AM:     at async resolveConfig (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.5_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.22.4_yaml@2.9.0/node_modules/vite/dist/node/chunks/config.js:35500:22)
+2:16:30 AM:     at async createBuilder (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.5_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.22.4_yaml@2.9.0/node_modules/vite/dist/node/chunks/config.js:33955:19)
+2:16:30 AM:     at async CAC.<anonymous> (file:///opt/build/repo/node_modules/.pnpm/vite@7.3.5_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.22.4_yaml@2.9.0/node_modules/vite/dist/node/cli.js:629:10)
+2:16:30 AM: /opt/build/repo/artifacts/mockup-sandbox:
+2:16:30 AM:  ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/mockup-sandbox@2.0.0 build: `vite build`
+2:16:30 AM: Exit status 1
+2:16:30 AM: ​
+2:16:30 AM: "build.command" failed                                        
+2:16:30 AM: ────────────────────────────────────────────────────────────────
+2:16:30 AM: ​
+2:16:30 AM:   Error message
+2:16:30 AM:   Command failed with exit code 1: pnpm --filter @workspace/mockup-sandbox... run build (https://ntl.fyi/exit-code-1)
+2:16:30 AM: ​
+2:16:30 AM:   Error location
+2:16:30 AM:   In Build command from Netlify app:
+2:16:30 AM:   pnpm --filter @workspace/mockup-sandbox... run build
+2:16:30 AM: ​
+2:16:30 AM:   Resolved config
+2:16:30 AM:   build:
